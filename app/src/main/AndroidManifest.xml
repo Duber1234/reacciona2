@@ -28,13 +28,14 @@
         </activity>
         <activity android:name=".ShareActivity"
             android:exported="true">
-            <intent-filter>
+            <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <!-- Manejo de texto plano -->
                 <data android:mimeType="text/plain" />
                 <!-- Manejo de HTML (por si se comparte en ese formato) -->
                 <data android:mimeType="text/html" />
+
             </intent-filter>
         </activity>
     </application>

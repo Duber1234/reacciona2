@@ -37,19 +37,16 @@ public class ShareActivity extends AppCompatActivity {
             queue = Volley.newRequestQueue(this);
             cn.fetchData("welcome/publicar2?share="+sharedText,queue);
             // Ahora redirige al MainActivity
-            Intent mainIntent = new Intent(this, MainActivity.class);
-
-            // Puedes pasar datos a MainActivity si lo necesitas
-            mainIntent.putExtra("SHARED_TEXT", sharedText);
-
-            // Cierra la actividad actual para "refrescar" la app
-            mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-
-            // Inicia la MainActivity
-            startActivity(mainIntent);
 
             // Finaliza la actividad actual para que no quede en la pila
             finish();
+            conexion myHttpClient=new conexion();
+            String url = "https://www.reacciona.in";
+            //getSupportActionBar().hide();
+
+            //startActivity( myHttpClient.openInChrome(url,getPackageManager()));
+            myHttpClient.openChromeCustomTab(url,this);
+
         }
     }
 }
